@@ -8,7 +8,6 @@ if (typeof flash != "function") {
   function flash(msg) { console.warn(msg) }
 }
 
-
 if (typeof file == "undefined") {
   var file = process.argv[2]
 }
@@ -40,13 +39,13 @@ function get_data(filename) {
     if (cols[headers["Saved"]] != "1") {
       continue
     }
-    if (cols[headers["Fast move"]].includes("-")) {
+    if (cols[headers["Fast move"]].trim() == "-") {
       continue
     }
-    if (cols[headers["Special move"]].includes("-")) {
+    if (cols[headers["Special move"]].trim() == "-") {
       continue
     }
-    if (cols[headers["Special move 2"]].includes("-")) {
+    if (cols[headers["Special move 2"]].trim() == "-") {
       cols[headers["Special move 2"]] = ""
     }
     if (cols[headers["Name"]] == "Giratina Altered") {
